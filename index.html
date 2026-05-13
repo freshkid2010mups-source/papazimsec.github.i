@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PapaZimsec | Free ZIMSEC Past Papers & AI Assistant</title>
+    <!-- Tailwind CSS CDN for styling without hosting overhead -->
+    <script src="jsdelivr.net"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+    <!-- Header Navigation -->
+    <header class="bg-blue-900 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tight">Papa<span class="text-yellow-400">Zimsec</span></h1>
+            <nav class="space-x-4">
+                <a href="#papers" class="hover:underline">Past Papers</a>
+                <a href="#ai-tutor" class="hover:underline">AI Study Assistant</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="container mx-auto p-6 max-w-6xl">
+        
+        <!-- Document Directory Section -->
+        <section id="papers" class="mb-12">
+            <h2 class="text-xl font-bold mb-4 border-b pb-2 text-blue-900">ZIMSEC Past Papers Directory</h2>
+            
+            <!-- Category Grid -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- O-Level Card -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="text-lg font-bold text-blue-800 mb-3">📂 Ordinary Level (O-Level)</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <details class="group">
+                                <summary class="cursor-pointer font-medium text-gray-700 hover:text-blue-600">Mathematics (4028)</summary>
+                                <div class="pl-4 pt-2 space-y-1 text-sm text-gray-600">
+                                    <a href="YOUR_GOOGLE_DRIVE_FILE_LINK" target="_blank" class="block hover:underline">📄 2025 Nov Paper 1 (Question Paper)</a>
+                                    <a href="YOUR_GOOGLE_DRIVE_FILE_LINK" target="_blank" class="block hover:underline">📄 2025 Nov Paper 1 (Marking Scheme)</a>
+                                </div>
+                            </details>
+                        </li>
+                        <li><span class="text-gray-400">Combined Science (4003)</span></li>
+                    </ul>
+                </div>
+
+                <!-- A-Level Card -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="text-lg font-bold text-blue-800 mb-3">📂 Advanced Level (A-Level)</h3>
+                    <ul class="space-y-2">
+                        <li><span class="text-gray-400">Pure Mathematics (6042)</span></li>
+                        <li><span class="text-gray-400">History (6006)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Embedded AI Study Assistant Window -->
+        <section id="ai-tutor" class="bg-white p-6 rounded-lg shadow-md border border-blue-100">
+            <h2 class="text-xl font-bold mb-2 text-blue-900">🤖 PapaZimsec AI Study Assistant</h2>
+            <p class="text-sm text-gray-600 mb-4">Paste your ZIMSEC question or exam topic below for an instant breakdown, step-by-step calculations, or syllabus definitions.</p>
+            
+            <!-- Chat Interface Box -->
+            <div class="border border-gray-200 rounded-lg h-96 flex flex-col bg-gray-50">
+                <!-- Chat Window Output Frame -->
+                <iframe src="YOUR_COZE_OR_POE_BOT_EMBED_URL" class="w-full h-full border-none rounded-lg"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-12 text-xs">
+        <p>© 2026 PapaZimsec. Disclaimer: This platform is independently managed and holds no official affiliation with the Zimbabwe School Examinations Council.</p>
+    </footer>
+
+</body>
+</html>
