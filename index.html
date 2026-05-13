@@ -65,7 +65,25 @@
             <!-- Chat Interface Box -->
             <div class="border border-gray-200 rounded-lg h-96 flex flex-col bg-gray-50">
                 <!-- Chat Window Output Frame -->
-                <iframe src="YOUR_COZE_OR_POE_BOT_EMBED_URL" class="w-full h-full border-none rounded-lg"></iframe>
+               
+<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
+<script>
+  new CozeWebSDK.WebChatClient({
+    config: {
+      bot_id: '7639439639514234885',
+    },
+    componentProps: {
+      title: 'Coze',
+    },
+    auth: {
+      type: 'token',
+      token: 'pat_********',
+      onRefreshToken: function () {
+        return 'pat_********'
+      }
+    }
+  });
+</script> 
             </div>
         </section>
 
