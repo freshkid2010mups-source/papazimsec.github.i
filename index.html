@@ -3,95 +3,769 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PapaZimsec | Free ZIMSEC Past Papers & AI Assistant</title>
-    <!-- Tailwind CSS CDN for styling without hosting overhead -->
-    <script src="jsdelivr.net"></script>
-</head>
-<body class="bg-gray-50 font-sans text-gray-900">
+    <title>PapaZimsec - ZIMSEC Past Papers & Study Resources | O-Level & A-Level</title>
+    <meta name="description" content="PapaZimsec: Access ZIMSEC past papers, study notes, and exam resources for O-Level and A-Level success in Zimbabwe. Free and premium study materials.">
+    <meta name="keywords" content="ZIMSEC past papers, O-Level papers, A-Level papers, Zimbabwe exams, ZIMSEC resources, exam prep">
+    <meta name="author" content="PapaZimsec">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="PapaZimsec - Master ZIMSEC Exams">
+    <meta property="og:description" content="Complete ZIMSEC past papers and study resources for O-Level and A-Level students in Zimbabwe">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://papazim.com">
+    <link rel="canonical" href="https://papazim.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Header Navigation -->
-    <header class="bg-blue-900 text-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold tracking-tight">Papa<span class="text-yellow-400">Zimsec</span></h1>
-            <nav class="space-x-4">
-                <a href="#papers" class="hover:underline">Past Papers</a>
-                <a href="#ai-tutor" class="hover:underline">AI Study Assistant</a>
-            </nav>
-        </div>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #7c3aed;
+            --danger: #dc2626;
+            --success: #16a34a;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background: var(--gray-50);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--gray-900);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--gray-900);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Papers Section */
+        .papers {
+            padding: 4rem 0;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .paper-card {
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .paper-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .paper-subject {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .paper-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .paper-level {
+            display: inline-block;
+            background: var(--gray-100);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Premium Section */
+        .premium {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 0;
+            margin: 4rem 0;
+            border-radius: 10px;
+        }
+
+        .premium-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .premium-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .premium-text ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .premium-text li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .premium-text li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            color: var(--text-primary);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            display: block;
+            padding: 0.4rem 0;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0f172a;
+                color: #e2e8f0;
+            }
+
+            .feature-card, .paper-card {
+                background: #1e293b;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+                border-color: #334155;
+            }
+
+            .search-input {
+                background: #1e293b;
+                color: white;
+                border-color: #334155;
+            }
+
+            .paper-level {
+                background: #334155;
+            }
+
+            .section-title {
+                color: #e2e8f0;
+            }
+
+            .feature-card h3 {
+                color: #e2e8f0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .premium-content {
+                grid-template-columns: 1fr;
+            }
+
+            .papers-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-book"></i> PapaZimsec
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#papers">Papers</a></li>
+                <li><a href="#premium">Premium</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn btn-primary" onclick="document.querySelector('.theme-toggle').click()">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
     </header>
 
-    <!-- Main Workspace -->
-    <main class="container mx-auto p-6 max-w-6xl">
-        
-        <!-- Document Directory Section -->
-        <section id="papers" class="mb-12">
-            <h2 class="text-xl font-bold mb-4 border-b pb-2 text-blue-900">ZIMSEC Past Papers Directory</h2>
-            
-            <!-- Category Grid -->
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- O-Level Card -->
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <h3 class="text-lg font-bold text-blue-800 mb-3">📂 Ordinary Level (O-Level)</h3>
-                    <ul class="space-y-2">
-                        <li>
-                            <details class="group">
-                                <summary class="cursor-pointer font-medium text-gray-700 hover:text-blue-600">Mathematics (4028)</summary>
-                                <div class="pl-4 pt-2 space-y-1 text-sm text-gray-600">
-                                    <a href="YOUR_GOOGLE_DRIVE_FILE_LINK" target="_blank" class="block hover:underline">📄 2025 Nov Paper 1 (Question Paper)</a>
-                                    <a href="YOUR_GOOGLE_DRIVE_FILE_LINK" target="_blank" class="block hover:underline">📄 2025 Nov Paper 1 (Marking Scheme)</a>
-                                </div>
-                            </details>
-                        </li>
-                        <li><span class="text-gray-400">Combined Science (4003)</span></li>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Master ZIMSEC Exams</h1>
+            <p>Access past papers, study notes, and expert guidance for O-Level and A-Level success</p>
+            <div class="hero-buttons">
+                <button class="btn btn-light" onclick="document.querySelector('#papers').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-search"></i> Browse Papers
+                </button>
+                <button class="btn btn-outline" onclick="document.querySelector('#premium').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-crown"></i> Upgrade to Premium
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose PapaZimsec?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Complete Past Papers</h3>
+                    <p>Access all ZIMSEC past papers from multiple years across all subjects</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-book"></i></div>
+                    <h3>Study Resources</h3>
+                    <p>Expert notes, summaries, and guides to accelerate your learning</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-search"></i></div>
+                    <h3>Smart Search</h3>
+                    <p>Find papers by subject, year, and difficulty level instantly</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Study anywhere, anytime on your phone or tablet</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>Community Support</h3>
+                    <p>Connect with students and tutors for tips and motivation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your improvement with our learning analytics (Premium)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Papers Section -->
+    <section class="papers" id="papers">
+        <div class="container">
+            <h2 class="section-title">ZIMSEC Past Papers</h2>
+            <div class="search-bar">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search by subject (e.g., Mathematics, English)">
+                <select class="search-input" id="levelFilter" style="flex: 0 0 150px;">
+                    <option value="">All Levels</option>
+                    <option value="O-Level">O-Level</option>
+                    <option value="A-Level">A-Level</option>
+                </select>
+            </div>
+
+            <!-- Ad Space 1 -->
+            <div style="text-align: center; margin: 2rem 0; padding: 1rem; background: var(--gray-50); border-radius: 8px;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="1234567890" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
+            <div class="papers-grid" id="papersGrid">
+                <!-- Papers will be loaded here by JavaScript -->
+            </div>
+
+            <!-- Ad Space 2 -->
+            <div style="text-align: center; margin: 2rem 0; padding: 1rem; background: var(--gray-50); border-radius: 8px;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" data-ad-slot="9876543210" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Section -->
+    <section class="premium" id="premium">
+        <div class="container">
+            <div class="premium-content">
+                <div class="premium-text">
+                    <h2>Go Premium</h2>
+                    <p>Unlock all features and maximize your exam prep</p>
+                    <ul>
+                        <li>Unlimited past papers download</li>
+                        <li>Detailed solutions & explanations</li>
+                        <li>1-on-1 tutor access</li>
+                        <li>Predicted papers (updated monthly)</li>
+                        <li>Progress tracking & analytics</li>
+                        <li>Ad-free experience</li>
+                    </ul>
+                    <button class="btn btn-light" onclick="alert('Premium signup coming soon!')">
+                        Get Premium Now
+                    </button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium Plus</h3>
+                    <div class="price">ZWL 29.99</div>
+                    <p style="margin-bottom: 1.5rem;">per month</p>
+                    <button class="btn btn-secondary" onclick="alert('Premium signup coming soon!')">
+                        Start Free Trial
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PapaZimsec</h3>
+                    <p style="color: #9ca3af; margin-bottom: 1rem;">Your trusted ZIMSEC exam companion</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#papers">Browse Papers</a></li>
+                        <li><a href="#premium">Premium</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-
-                <!-- A-Level Card -->
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <h3 class="text-lg font-bold text-blue-800 mb-3">📂 Advanced Level (A-Level)</h3>
-                    <ul class="space-y-2">
-                        <li><span class="text-gray-400">Pure Mathematics (6042)</span></li>
-                        <li><span class="text-gray-400">History (6006)</span></li>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@papazim.com">info@papazim.com</a></li>
+                        <li><a href="tel:+263000000000">+263 (0) 123 456 789</a></li>
+                        <li>Harare, Zimbabwe</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
                     </ul>
                 </div>
             </div>
-        </section>
-
-        <!-- Embedded AI Study Assistant Window -->
-        <section id="ai-tutor" class="bg-white p-6 rounded-lg shadow-md border border-blue-100">
-            <h2 class="text-xl font-bold mb-2 text-blue-900">🤖 PapaZimsec AI Study Assistant</h2>
-            <p class="text-sm text-gray-600 mb-4">Paste your ZIMSEC question or exam topic below for an instant breakdown, step-by-step calculations, or syllabus definitions.</p>
-            
-            <!-- Chat Interface Box -->
-            <div class="border border-gray-200 rounded-lg h-96 flex flex-col bg-gray-50">
-                <!-- Chat Window Output Frame -->
-               
-<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
-<script>
-  new CozeWebSDK.WebChatClient({
-    config: {
-      bot_id: '7639439639514234885',
-    },
-    componentProps: {
-      title: 'Coze',
-    },
-    auth: {
-      type: 'token',
-      token: 'pat_********',
-      onRefreshToken: function () {
-        return 'pat_********'
-      }
-    }
-  });
-</script> 
+            <div class="footer-bottom">
+                <p>&copy; 2025 PapaZimsec. All rights reserved. | <a href="#" style="color: #9ca3af;">Privacy Policy</a> | <a href="#" style="color: #9ca3af;">Terms of Service</a></p>
             </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-12 text-xs">
-        <p>© 2026 PapaZimsec. Disclaimer: This platform is independently managed and holds no official affiliation with the Zimbabwe School Examinations Council.</p>
+        </div>
     </footer>
 
+    <!-- Hidden theme toggle -->
+    <button class="theme-toggle" style="display: none;" onclick="toggleTheme()"></button>
+
+    <script>
+        // Comprehensive ZIMSEC past papers data
+        const pastPapers = [
+            // Mathematics
+            { subject: 'Mathematics', level: 'O-Level', year: 2024, season: 'May/June', papers: 3 },
+            { subject: 'Mathematics', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 3 },
+            { subject: 'Mathematics', level: 'O-Level', year: 2023, season: 'May/June', papers: 3 },
+            { subject: 'Mathematics', level: 'A-Level', year: 2024, season: 'May/June', papers: 3 },
+            { subject: 'Mathematics', level: 'A-Level', year: 2023, season: 'Oct/Nov', papers: 3 },
+            
+            // English Language
+            { subject: 'English Language', level: 'O-Level', year: 2024, season: 'May/June', papers: 3 },
+            { subject: 'English Language', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 3 },
+            { subject: 'English Language', level: 'A-Level', year: 2024, season: 'May/June', papers: 3 },
+            { subject: 'English Language', level: 'A-Level', year: 2023, season: 'Oct/Nov', papers: 3 },
+            
+            // Biology
+            { subject: 'Biology', level: 'O-Level', year: 2024, season: 'May/June', papers: 2 },
+            { subject: 'Biology', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 2 },
+            { subject: 'Biology', level: 'A-Level', year: 2024, season: 'May/June', papers: 2 },
+            { subject: 'Biology', level: 'A-Level', year: 2023, season: 'Oct/Nov', papers: 2 },
+            
+            // Chemistry
+            { subject: 'Chemistry', level: 'O-Level', year: 2024, season: 'May/June', papers: 2 },
+            { subject: 'Chemistry', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 2 },
+            { subject: 'Chemistry', level: 'A-Level', year: 2024, season: 'May/June', papers: 2 },
+            { subject: 'Chemistry', level: 'A-Level', year: 2023, season: 'Oct/Nov', papers: 2 },
+            
+            // Physics
+            { subject: 'Physics', level: 'O-Level', year: 2024, season: 'May/June', papers: 2 },
+            { subject: 'Physics', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 2 },
+            { subject: 'Physics', level: 'A-Level', year: 2024, season: 'May/June', papers: 2 },
+            { subject: 'Physics', level: 'A-Level', year: 2023, season: 'Oct/Nov', papers: 2 },
+            
+            // History
+            { subject: 'History', level: 'O-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'History', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            { subject: 'History', level: 'A-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'History', level: 'A-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            
+            // Geography
+            { subject: 'Geography', level: 'O-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'Geography', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            { subject: 'Geography', level: 'A-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'Geography', level: 'A-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            
+            // Economics
+            { subject: 'Economics', level: 'O-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'Economics', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            { subject: 'Economics', level: 'A-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'Economics', level: 'A-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            
+            // Accounting
+            { subject: 'Accounting', level: 'O-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'Accounting', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            { subject: 'Accounting', level: 'A-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'Accounting', level: 'A-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            
+            // Business Studies
+            { subject: 'Business Studies', level: 'O-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'Business Studies', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            { subject: 'Business Studies', level: 'A-Level', year: 2024, season: 'May/June', papers: 1 },
+            
+            // Literature in English
+            { subject: 'Literature in English', level: 'O-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'Literature in English', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+            { subject: 'Literature in English', level: 'A-Level', year: 2024, season: 'May/June', papers: 1 },
+            
+            // Shona Language
+            { subject: 'Shona Language', level: 'O-Level', year: 2024, season: 'May/June', papers: 2 },
+            { subject: 'Shona Language', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 2 },
+            { subject: 'Shona Language', level: 'A-Level', year: 2024, season: 'May/June', papers: 2 },
+            
+            // Ndebele Language
+            { subject: 'Ndebele Language', level: 'O-Level', year: 2024, season: 'May/June', papers: 2 },
+            { subject: 'Ndebele Language', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 2 },
+            
+            // ICT / Computer Science
+            { subject: 'ICT / Computer Science', level: 'O-Level', year: 2024, season: 'May/June', papers: 2 },
+            { subject: 'ICT / Computer Science', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 2 },
+            { subject: 'ICT / Computer Science', level: 'A-Level', year: 2024, season: 'May/June', papers: 2 },
+            
+            // Technical Drawing
+            { subject: 'Technical Drawing', level: 'O-Level', year: 2024, season: 'May/June', papers: 1 },
+            { subject: 'Technical Drawing', level: 'O-Level', year: 2023, season: 'Oct/Nov', papers: 1 },
+        ];
+
+        function renderPapers(papers = pastPapers) {
+            const grid = document.getElementById('papersGrid');
+            grid.innerHTML = '';
+
+            papers.forEach(paper => {
+                const card = document.createElement('div');
+                card.className = 'paper-card';
+                card.innerHTML = `
+                    <div class="paper-subject">${paper.subject}</div>
+                    <div class="paper-meta">${paper.year} • ${paper.season}</div>
+                    <span class="paper-level">${paper.level}</span>
+                `;
+                card.onclick = () => alert(`${paper.subject} ${paper.level} ${paper.year} paper - Download coming soon!`);
+                grid.appendChild(card);
+            });
+
+            if (papers.length === 0) {
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem;"><p style="color: var(--text-secondary);">No papers found. Try a different search.</p></div>';
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterPapers);
+        document.getElementById('levelFilter').addEventListener('change', filterPapers);
+
+        function filterPapers() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const level = document.getElementById('levelFilter').value;
+
+            const filtered = pastPapers.filter(paper => {
+                const matchesSearch = paper.subject.toLowerCase().includes(search);
+                const matchesLevel = !level || paper.level === level;
+                return matchesSearch && matchesLevel;
+            });
+
+            renderPapers(filtered);
+        }
+
+        function toggleTheme() {
+            document.documentElement.style.colorScheme = 
+                document.documentElement.style.colorScheme === 'dark' ? 'light' : 'dark';
+        }
+
+        // Initial render
+        renderPapers();
+    </script>
 </body>
 </html>
